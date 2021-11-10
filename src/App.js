@@ -1,4 +1,4 @@
-import { BrowserRouter ,Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home/Home';
@@ -10,18 +10,18 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navigations></Navigations>
-          <Switch>
-            <Route path="/home">
-              <Home></Home>
-            </Route>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route  path="*">
-              <NotFound></NotFound>
-            </Route>
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
