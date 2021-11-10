@@ -1,11 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ProductsHomePage = () => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:5000/products")
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [])
     return (
         <div>
             <h1 className="text-primary mt-3">Products</h1>
             <hr className="w-25 text-primary border border-info mx-auto" />
-            <h1>This Is Home Page Producyts</h1>
+            {/* <p>Products {products.length}</p> */}
+            <Row xs={1} md={3} className="gx-0 gy-4">
+                {products.map( (product , index) => index < 6 && (
+                    <Col key={product._id} className="px-3">
+                        <Card>
+                            <Card.Img variant="top" src={ product.img} />
+                            <Card.Body>
+                                <Card.Title>{ product.name}</Card.Title>
+                                <Card.Text>
+                                    <small>By { (product.material).charAt(0).toUpperCase() + (product.material).slice(1)}</small>
+                                </Card.Text>
+                                <Card.Text className="text-primary">
+                                    $ { (product.price)}
+                                </Card.Text>
+                                <Card.Text>
+                                    { (product.des).slice(0, 150)}
+                                </Card.Text>
+                                <Card.Text>
+                                    <Link><button className="btn btn-outline-info text-dark">Purches Now</button></Link>
+                                </Card.Text>
+                               
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+            <Link to="/exploreproducts"><button className="btn btn-primary mt-3">More Products</button></Link>
+
         </div>
     );
 };

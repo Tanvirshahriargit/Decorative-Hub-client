@@ -2,9 +2,10 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,reset} = useForm();
     const onSubmit = data => {
-        console.log("added oroducts", data)
+        // console.log("added oroducts", data)
+
         fetch('http://localhost:5000/products', {
             method: "POST",
             headers: {
@@ -12,7 +13,15 @@ const AddProduct = () => {
             },
             body: JSON.stringify(data)
         })
-        .then()
+            .then(res => res.json())
+            .then(data => {
+                
+                // console.log(data);
+            if (data.insertedId) {
+                alert("Your product Added SuccessFully")
+                }
+                reset()
+        })
     };
     return (
         <div>
