@@ -16,7 +16,8 @@ const Navigations = () => {
                         <NavLink className="link p-2" to="/exploreproducts">Exploreproducts</NavLink>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                        <NavLink className="link p-2" to="/login">Login</NavLink>
+                        <NavLink className="link p-2" to="/register">Register</NavLink>
                             <Nav.Link eventKey={2} href="#memes">
                                 Dank memes
                             </Nav.Link>

@@ -6,6 +6,8 @@ import Navigations from './pages/Shared/Navigations/Navigations';
 import NotFound from './pages/NotFound/NotFound';
 import AddProduct from './pages/Dashboard/AddProduct/AddProduct';
 import ExploreProducts from './pages/ExploreProducts/ExploreProducts';
+import Login from './pages/Login/Login/Login';
+import Register from './pages/Register/Register';
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
           </Route>
           <Route path="/addproduct">
             <AddProduct></AddProduct>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
