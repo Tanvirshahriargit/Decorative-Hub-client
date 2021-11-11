@@ -8,36 +8,39 @@ import AddProduct from './pages/Dashboard/AddProduct/AddProduct';
 import ExploreProducts from './pages/ExploreProducts/ExploreProducts';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Register/Register';
+import AuthProvider from './contexts/AuthProvider';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navigations></Navigations>
-        <Switch>
-        <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/exploreproducts">
-            <ExploreProducts></ExploreProducts>
-          </Route>
-          <Route path="/addproduct">
-            <AddProduct></AddProduct>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/register">
-            <Register></Register>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Navigations></Navigations>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/exploreproducts">
+              <ExploreProducts></ExploreProducts>
+            </Route>
+            <Route path="/addproduct">
+              <AddProduct></AddProduct>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

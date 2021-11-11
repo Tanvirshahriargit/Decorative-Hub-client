@@ -2,11 +2,16 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const { register, handleSubmit, reset } = useForm();
+    // import use auth 
+    const { handleRegister, googleSignIn } = useAuth();
+
     const onSubmit = (data) => {
-        console.log("added Register", data)
+        console.log("added Register", data.email)
+        handleRegister(data.email, data.password)
         reset()
     };
     return (
@@ -31,7 +36,7 @@ const Register = () => {
                     <input className="btn btn-primary ms-4" value="Register" type="submit" />
                 </form>
                 <h4 className="ms-5 mt-3">------------- or ---------------</h4>
-                <button className="my-2 ms-4 btn btn-primary">Register with Google</button>
+                <button onClick={googleSignIn} className="my-2 ms-4 btn btn-primary">Register with Google</button>
                 <p>Already Have an Account Please! <Link to="/login">Log In</Link></p>
             </Col>
         </Row>
