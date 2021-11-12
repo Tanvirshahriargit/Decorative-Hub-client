@@ -109,7 +109,7 @@ const useFirebase = () => {
     // saveUser send database
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://enigmatic-earth-85911.herokuapp.com/users', {
             method:"POST",
             headers: {
                 'content-type': 'application/json'
@@ -121,7 +121,7 @@ const useFirebase = () => {
     // saveUser send database
     const saveGoogleUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('http://https://enigmatic-earth-85911.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

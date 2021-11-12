@@ -6,7 +6,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         // console.log("added oroducts", data)
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://enigmatic-earth-85911.herokuapp.com/products', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

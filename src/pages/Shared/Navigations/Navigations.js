@@ -21,6 +21,9 @@ const Navigations = () => {
                             {
                                 !user?.email && <NavLink className="link p-2" to="/register">Register</NavLink>
                             }
+                            {
+                                user?.email && <NavLink className="link p-2" to="/dashboard">Dashboard</NavLink>
+                            }
 
                             {
                                 user?.email ? <button onClick={logOut} className="btn btn-light">Logout</button> :

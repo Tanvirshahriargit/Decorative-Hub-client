@@ -13,7 +13,7 @@ const Purches = () => {
 
     // Single Products Load from server
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://enigmatic-earth-85911.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
@@ -27,7 +27,7 @@ const Purches = () => {
         data.text = user?.displayName;
         data.status = "pending";
         console.log("added login user", data)
-        fetch('http://localhost:5000/orders', {
+        fetch('https://enigmatic-earth-85911.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

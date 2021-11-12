@@ -12,6 +12,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivetRoute from './pages/Login/PrivetRoute/PrivetRoute';
 import Purches from './pages/Purches/Purches';
 import Myorders from './pages/Dashboard/Myorders/Myorders';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -26,18 +27,15 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/orders">
-              <Myorders></Myorders>
-            </Route>
+            <PrivetRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivetRoute>
             <PrivetRoute path="/exploreproducts">
               <ExploreProducts></ExploreProducts>
             </PrivetRoute>
             <PrivetRoute path="/purches/:id">
               <Purches></Purches>
             </PrivetRoute>
-            <Route path="/addproduct">
-              <AddProduct></AddProduct>
-            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
