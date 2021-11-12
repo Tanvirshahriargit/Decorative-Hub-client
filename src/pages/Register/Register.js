@@ -1,17 +1,26 @@
 import React from 'react';
 import { Col, Row, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link ,useHistory, useLocation} from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const { register, handleSubmit, reset } = useForm();
     // import use auth 
-    const {user, handleRegister, googleSignIn , loading ,error} = useAuth();
+    const { user, handleRegister, googleSignIn, loading, error } = useAuth();
+        // rediract
+        const location = useLocation()
+        const history = useHistory()
+    
+        // Rediract GoogleSign in
+        const handleGoogleSignIn = () => {
+            googleSignIn(location, history)
+            
+        }
 
     const onSubmit = (data) => {
-        console.log("added Register", data.email)
-        handleRegister(data.email, data.password)
+        console.log("added Register", data)
+        handleRegister(data.email, data.password, data.text, location , history)
         reset()
     };
     return (
@@ -29,7 +38,12 @@ const Register = () => {
                     <h4 className="mb-2 text-primary ms-5">Register Your Account</h4>
                 }
                 {!loading && <form onSubmit={handleSubmit(onSubmit)}>
-                    <p>Email  <input className="ms-4 mb-1 p-2 w-50 mt-4 border border-primary rounded-3"
+                    <p>Name  <input className="ms-4 mb-1 p-2 w-50 mt-4 border border-primary rounded-3"
+                        placeholder="Provide Your Name"
+                        name="name"
+                        type="text"
+                        {...register("email", { required: true })} /></p>
+                    <p>Email  <input className="ms-4 mb-1 p-2 w-50 border border-primary rounded-3"
                         placeholder="Input Your Email Address"
                         name="email"
                         type="email"
@@ -48,7 +62,7 @@ const Register = () => {
                     error && <h5 className="text-danger mt-4">{ error} </h5>
                 }
                 <h4 className="ms-5 mt-3">------------- or ---------------</h4>
-                <button onClick={googleSignIn} className="my-2 ms-4 btn btn-primary">Register with Google</button>
+                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary">Register with Google</button>
                 <p>Already Have an Account Please! <Link to="/login">Log In</Link></p>
             </Col>
         </Row>

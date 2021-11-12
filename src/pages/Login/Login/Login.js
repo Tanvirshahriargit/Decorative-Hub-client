@@ -1,15 +1,26 @@
 import React from 'react';
 import { Col, Row, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link ,useLocation , useHistory} from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
     const { user, handleLogin, googleSignIn, loading, error } = useAuth();
     const { register, handleSubmit, reset } = useForm();
+
+    // rediract
+    const location = useLocation()
+    const history = useHistory()
+
+    // Rediract GoogleSign in
+    const handleGoogleSignIn = () => {
+        googleSignIn(location, history)
+        
+    }
+
     const onSubmit = (data) => {
         console.log("added login user", data)
-        handleLogin(data.email, data.password)
+        handleLogin(data.email, data.password, location ,history)
         reset()
     };
     return (
@@ -40,7 +51,7 @@ const Login = () => {
                     error && <h5 className="text-danger mt-4">{error} </h5>
                 }
                 <h4 className="ms-5 mt-3">------------- or ---------------</h4>
-                <button onClick={googleSignIn} className="my-2 ms-4 btn btn-primary">Log In with Google</button>
+                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary">Log In with Google</button>
                 <p>Don't Have an Account Please! <Link to="/register">Register</Link></p>
             </Col>
             <Col>

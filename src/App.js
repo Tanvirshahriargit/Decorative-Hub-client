@@ -9,6 +9,9 @@ import ExploreProducts from './pages/ExploreProducts/ExploreProducts';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Register/Register';
 import AuthProvider from './contexts/AuthProvider';
+import PrivetRoute from './pages/Login/PrivetRoute/PrivetRoute';
+import Purches from './pages/Purches/Purches';
+import Myorders from './pages/Dashboard/Myorders/Myorders';
 
 function App() {
   return (
@@ -23,9 +26,15 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/exploreproducts">
-              <ExploreProducts></ExploreProducts>
+            <Route path="/orders">
+              <Myorders></Myorders>
             </Route>
+            <PrivetRoute path="/exploreproducts">
+              <ExploreProducts></ExploreProducts>
+            </PrivetRoute>
+            <PrivetRoute path="/purches/:id">
+              <Purches></Purches>
+            </PrivetRoute>
             <Route path="/addproduct">
               <AddProduct></AddProduct>
             </Route>

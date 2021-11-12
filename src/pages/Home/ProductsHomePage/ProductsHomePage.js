@@ -34,7 +34,7 @@ const ProductsHomePage = () => {
                                     { (product.des).slice(0, 150)}
                                 </Card.Text>
                                 <Card.Text>
-                                    <Link><button className="btn btn-outline-info text-dark">Purches Now</button></Link>
+                                    <Link to={`/purches/${product._id}`}><button className="btn btn-outline-info text-dark">Purches Now</button></Link>
                                 </Card.Text>
                                
                             </Card.Body>
