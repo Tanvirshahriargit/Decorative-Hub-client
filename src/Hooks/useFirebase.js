@@ -9,6 +9,9 @@ const useFirebase = () => {
     const [user, setUser] = useState([])
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true);
+    // admin check
+    const [admin, setAdmin] = useState(false)
+
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -17,7 +20,7 @@ const useFirebase = () => {
         setLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result.user);
+                // console.log(result.user);
                 setError("")
                 // // save user to database
                 const newUser = { email, displayName: text }
@@ -96,6 +99,17 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
+
+    // Admin check and dara loading
+
+    useEffect(() => {
+        fetch(`http://https://enigmatic-earth-85911.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+            setAdmin(data.admin)
+        })
+    },[user.email])
+
     //LogOut 
     const logOut = () => {
         setLoading(true)
@@ -133,6 +147,7 @@ const useFirebase = () => {
     return {
         googleSignIn,
         user,
+        admin,
         loading,
         error,
         logOut,

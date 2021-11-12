@@ -1,11 +1,9 @@
 import React from 'react';
 import './Dasgboard.css'
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import Review from '../../Home/Review/Review';
@@ -15,8 +13,10 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
+import useAuth from '../../../Hooks/useAuth';
 
 const Dashboard = () => {
+    const { admin } = useAuth()
     let { path, url } = useRouteMatch();
     return (
         <div>
@@ -34,26 +34,23 @@ const Dashboard = () => {
                             <Link className="linking" to={`${url}/review`}>
                                 <li className="dashboard-menu mt-5">Review</li>
                             </Link>
-                            <Link className="linking" to={`${url}/makeadmin`}>
-                                <li className="dashboard-menu mt-5">Make Admin</li>
-                            </Link>
-                            <Link className="linking" to={`${url}/addproduct`}>
-                                <li className="dashboard-menu mt-5">Add A Product</li>
-                            </Link>
-                            <Link className="linking" to={`${url}/manageorders`}>
-                                <li className="dashboard-menu mt-5">Manage All Orders</li>
-                            </Link>
-                            <Link className="linking" to={`${url}/manageproducts`}>
-                                <li className="dashboard-menu mt-5">Manage Products</li>
-                            </Link>
-                            <div className="admin-dashboard">
-                                {/* {isAdmi && (
-                                    <Link to={`${url}/addService`}>
-                                        <li className="dashboard-menu">Add Service</li>
+
+                            {
+                                admin && <div>
+                                    <Link className="linking" to={`${url}/makeadmin`}>
+                                        <li className="dashboard-menu mt-5">Make Admin</li>
                                     </Link>
-                                )} */}
-                                
-                            </div>
+                                    <Link className="linking" to={`${url}/addproduct`}>
+                                        <li className="dashboard-menu mt-5">Add A Product</li>
+                                    </Link>
+                                    <Link className="linking" to={`${url}/manageorders`}>
+                                        <li className="dashboard-menu mt-5">Manage All Orders</li>
+                                    </Link>
+                                    <Link className="linking" to={`${url}/manageproducts`}>
+                                        <li className="dashboard-menu mt-5">Manage Products</li>
+                                    </Link>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className="col-md-9">
