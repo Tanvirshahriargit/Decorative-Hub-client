@@ -13,6 +13,8 @@ import PrivetRoute from './pages/Login/PrivetRoute/PrivetRoute';
 import Purches from './pages/Purches/Purches';
 import Myorders from './pages/Dashboard/Myorders/Myorders';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Footer from './pages/Shared/Footer/Footer';
+import AboutUs from './pages/Home/Home/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -42,10 +44,14 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
+            <Route path="/aboutus">
+              <AboutUs></AboutUs>
+            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
       </AuthProvider>
     </div>
