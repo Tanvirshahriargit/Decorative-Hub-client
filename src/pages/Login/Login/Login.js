@@ -51,7 +51,7 @@ const Login = () => {
                     error && <h5 className="text-danger mt-4">{error} </h5>
                 }
                 <h4 className="ms-5 mt-3">------------- or ---------------</h4>
-                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary">Log In with Google</button>
+                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary"><i class="fab fa-google me-2"></i>Log In with Google</button>
                 <p>Don't Have an Account Please! <Link to="/register">Register</Link></p>
             </Col>
             <Col>

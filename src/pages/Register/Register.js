@@ -62,7 +62,7 @@ const Register = () => {
                     error && <h5 className="text-danger mt-4">{ error} </h5>
                 }
                 <h4 className="ms-5 mt-3">------------- or ---------------</h4>
-                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary">Register with Google</button>
+                <button onClick={handleGoogleSignIn} className="my-2 ms-4 btn btn-primary"><i class="fab fa-google me-2"></i>Register with Google</button>
                 <p>Already Have an Account Please! <Link to="/login">Log In</Link></p>
             </Col>
         </Row>

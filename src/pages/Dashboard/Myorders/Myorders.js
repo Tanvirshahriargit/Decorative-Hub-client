@@ -7,14 +7,14 @@ const Myorders = () => {
     const [ orders, setOrders ] = useState([]);
     
     useEffect(() => {
-        const  url = `https://enigmatic-earth-85911.herokuapp.com/orders?email=${user?.email}`
+        const  url = `https://enigmatic-earth-85911.herokuapp.com/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
                 // console.log(data);
         })
-    }, [user?.email])
+    }, [user.email])
     
     const handleDeletedOrder = (id) => {
         const deletedProcess = swal({
@@ -48,7 +48,8 @@ const Myorders = () => {
     }
     return (
         <div>
-            <h2>My Orders: {orders.length}</h2>
+            <h3 className="text-primary my-2">My Orders: {orders.length}</h3>
+            <hr className="w-25 text-primary border border-info mx-auto" />
             <div className="row gx-0 gy-4 p-4">
             {
                     orders.map(order => <div key={order._id} className="col-12 col-md-6">
