@@ -31,7 +31,7 @@ const Myorders = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount) {
                             swal("Poof! Your imaginary file has been deleted!", {
                                 icon: "success",

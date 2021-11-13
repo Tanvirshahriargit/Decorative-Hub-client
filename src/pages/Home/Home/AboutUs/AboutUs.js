@@ -4,7 +4,7 @@ import { Accordion } from 'react-bootstrap';
 const AboutUs = () => {
     return (
         <div>
-            <h1 className="text-primary mt-3"><i className="fab fa-angellist me-3"></i>About Us</h1>
+            <h1 className="text-primary mt-3">About Us</h1>
             <hr className="mx-auto w-25 border border-1 border-primary" />
             {/* Top About */}
             <div className="container row">

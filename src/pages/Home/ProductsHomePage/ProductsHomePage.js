@@ -34,7 +34,7 @@ const ProductsHomePage = () => {
                                     { (product.des).slice(0, 150)}
                                 </Card.Text>
                                 <Card.Text>
-                                    <Link to={`/purches/${product._id}`}><button className="btn btn-outline-info text-dark">Purches Now</button></Link>
+                                    <Link to={`/purches/${product._id}`}><button className="btn btn-outline-info text-dark">Purches Now<i class="fas fa-cart-plus ms-1"></i></button></Link>
                                 </Card.Text>
                                
                             </Card.Body>
@@ -42,7 +42,7 @@ const ProductsHomePage = () => {
                     </Col>
                 ))}
             </Row>
-            <Link to="/exploreproducts"><button className="btn btn-primary mt-3">More Products</button></Link>
+            <Link to="/exploreproducts"><button className="btn btn-primary mt-3"><i class="fas fa-expand me-2"></i>More Products</button></Link>
 
         </div>
     );

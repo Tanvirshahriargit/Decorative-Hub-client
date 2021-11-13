@@ -101,14 +101,14 @@ const useFirebase = () => {
 
     // admin
     useEffect(() => {
-        fetch(`https://enigmatic-earth-85911.herokuapp.com/users/${user.email}`)
+        fetch(`https://enigmatic-earth-85911.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
                 setIsAdmin(data.admin)
             })
     }, [user.email])
-    console.log(isAdmin);
+    // console.log(isAdmin);
 
     //LogOut 
     const logOut = () => {

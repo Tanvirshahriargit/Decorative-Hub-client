@@ -6,7 +6,6 @@ import {
     Link,
     useRouteMatch
 } from "react-router-dom";
-import Review from '../../Home/Review/Review';
 import Myorders from '../Myorders/Myorders';
 import Pay from './Pay/Pay';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
@@ -15,6 +14,7 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import useAuth from '../../../Hooks/useAuth';
 import SequreRoute from '../../Login/SequreRoute/SequreRoute';
+import AddReviews from '../AddReviews/AddReviews';
 
 const Dashboard = () => {
     const { isAdmin } = useAuth()
@@ -40,28 +40,28 @@ const Dashboard = () => {
                         <div className="dashboard pt-2">
                             <h5><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h5>
                             <Link className="linking" to={`${url}`}>
-                                <li className="dashboard-menu mt-5">My Orders</li>
+                                <li className="dashboard-menu mt-5"><i class="fas fa-shopping-bag me-2"></i>My Orders</li>
                             </Link>
                             <Link className="linking" to={`${url}/pay`}>
-                                <li className="dashboard-menu mt-5">Payment</li>
+                                <li className="dashboard-menu mt-5"><i class="fas fa-money-check-alt me-2"></i>Payment</li>
                             </Link>
                             <Link className="linking" to={`${url}/review`}>
-                                <li className="dashboard-menu mt-5">Review</li>
+                                <li className="dashboard-menu mt-5"><i class="fas fa-hand-peace me-2"></i>Review</li>
                             </Link>
 
                             {
                                 isAdmin && <div>
                                     <Link className="linking" to={`${url}/makeadmin`}>
-                                        <li className="dashboard-menu mt-5">Make Admin</li>
+                                        <li className="dashboard-menu mt-5"><i class="fas fa-user-shield me-2"></i>Make Admin</li>
                                     </Link>
                                     <Link className="linking" to={`${url}/addproduct`}>
-                                        <li className="dashboard-menu mt-5">Add A Product</li>
+                                        <li className="dashboard-menu mt-5"><i class="fas fa-plus-circle me-2"></i>Add A Product</li>
                                     </Link>
                                     <Link className="linking" to={`${url}/manageorders`}>
-                                        <li className="dashboard-menu mt-5">Manage All Orders</li>
+                                        <li className="dashboard-menu mt-5"><i class="fas fa-project-diagram me-2"></i>Manage All Orders</li>
                                     </Link>
                                     <Link className="linking" to={`${url}/manageproducts`}>
-                                        <li className="dashboard-menu mt-5">Manage Products</li>
+                                        <li className="dashboard-menu mt-5"><i class="fas fa-border-style me-2"></i>Manage Products</li>
                                     </Link>
                                 </div>
                             }
@@ -76,7 +76,7 @@ const Dashboard = () => {
                                 <Pay></Pay>
                             </Route>
                             <Route exact path={`${path}/review`}>
-                                <Review></Review>
+                                <AddReviews></AddReviews>
                             </Route>
                             <SequreRoute exact path={`${path}/makeadmin`}>
                                 <MakeAdmin></MakeAdmin>
