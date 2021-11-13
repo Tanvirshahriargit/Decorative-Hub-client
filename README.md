@@ -1,10 +1,10 @@
 # Decorative-Hub Website -client-site
 
-This project was Firebase, React ,React route, React Bootstrap.Visit My client site [Decorative-Hub Website](https://travel-guru-3a31a.web.app/home).
+This project was Firebase, React ,React route, React Bootstrap.Visit My client site [Decorative-Hub Website]().
 
 # Travel-Guru-Website -server-site
 
-This project was Firebase, React ,React route, React Bootstrap.Visit My server site [Travel-Guru-Website](https://haunted-eyeballs-76205.herokuapp.com/).
+This project was Firebase, React ,React route, React Bootstrap.Visit My server site [Decorative-Hub-Website]().
 
 ## Table of contents
 * [About Website](#about-website)
@@ -12,17 +12,21 @@ This project was Firebase, React ,React route, React Bootstrap.Visit My server s
 * [Setup](#setup)
 
 ## About Website
-* In this website you can see A Tarvel Website and Booking where you have to Go
+* In this website you can see A Nich Website and Purches Interesting Decoration Products 
 
-* You can see our all information about Booking Pages
+* You can see our all Products about Explore Page
 
-* Youn can see all booking information and price of a location
+* Youn can see your DeshBoard 
 
-* This Is best website to know about country and travelling
+* Youn can see all your orders and cancel your order
 
-* You Can log in with Google 
+* Youn can Provide your Valueable Reviews
 
-* You Can See Your Orders And Remove Orders
+* If you Admin You Can see More Option in our site 
+
+* You Can Signup Google and email and password
+
+* You Can log in with Google and email and password
 
 * An Admin Can see All orders and Update something anytimes
 
@@ -38,6 +42,7 @@ Project is created with:
 * express
 * cors
 * react hooks form
+* react-rating
 
 # Getting Started with Create React App
 
