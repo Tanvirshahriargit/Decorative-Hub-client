@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row, Spinner } from 'react-bootstrap';
 import Rating from 'react-rating'
 
 const Reviews = () => {
@@ -16,7 +16,9 @@ const Reviews = () => {
         <div>
             <h2 className=" mt-4">Reviews</h2>
             <hr className="w-25 text-primary border border-info mx-auto" />
-            <Row xs={1} md={3} className="gx-0 gy-4">
+            { reviews.length ===0? <Spinner animation="border" variant="info" />:
+                
+                <Row xs={1} md={3} className="gx-0 gy-4">
                 {reviews.map(review => <Col key={review._id} className="px-3">
                     <Card>
                         <Card.Body>
@@ -41,7 +43,7 @@ const Reviews = () => {
                         </Card.Body>
                     </Card>
                 </Col>)}
-            </Row>
+            </Row>}
 
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ProductsHomePage = () => {
@@ -17,7 +17,10 @@ const ProductsHomePage = () => {
             <h1 className="text-primary mt-3">Products</h1>
             <hr className="w-25 text-primary border border-info mx-auto" />
             {/* <p>Products {products.length}</p> */}
-            <Row xs={1} md={3} className="gx-0 gy-4">
+            {products.length === 0 ?
+            <Spinner animation="border" variant="info" />
+            :
+                <Row xs={1} md={3} className="gx-0 gy-4">
                 {products.map( (product , index) => index < 6 && (
                     <Col key={product._id} className="px-3">
                         <Card>
@@ -41,7 +44,7 @@ const ProductsHomePage = () => {
                         </Card>
                     </Col>
                 ))}
-            </Row>
+            </Row>}
             <Link to="/exploreproducts"><button className="btn btn-primary mt-3"><i className="fas fa-expand me-2"></i>More Products</button></Link>
 
         </div>
