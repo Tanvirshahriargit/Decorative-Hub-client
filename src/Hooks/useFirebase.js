@@ -9,8 +9,8 @@ const useFirebase = () => {
     const [user, setUser] = useState([])
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true);
-    // admin check
-    const [admin, setAdmin] = useState(false)
+    //admin state  
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -99,16 +99,16 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
-
-    // Admin check and dara loading
-
+    // admin
     useEffect(() => {
-        fetch(`http://https://enigmatic-earth-85911.herokuapp.com/users/${user.email}`)
+        fetch(`https://enigmatic-earth-85911.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
-            setAdmin(data.admin)
-        })
-    },[user.email])
+                console.log(data);
+                setIsAdmin(data.admin)
+            })
+    }, [user.email])
+    console.log(isAdmin);
 
     //LogOut 
     const logOut = () => {
@@ -135,7 +135,7 @@ const useFirebase = () => {
     // saveUser send database
     const saveGoogleUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://https://enigmatic-earth-85911.herokuapp.com/users', {
+        fetch('https://enigmatic-earth-85911.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -147,8 +147,8 @@ const useFirebase = () => {
     return {
         googleSignIn,
         user,
-        admin,
         loading,
+        isAdmin,
         error,
         logOut,
         handleRegister,

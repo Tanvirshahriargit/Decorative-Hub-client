@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dasgboard.css'
 import {
     Switch,
@@ -14,10 +14,24 @@ import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 import useAuth from '../../../Hooks/useAuth';
+import SequreRoute from '../../Login/SequreRoute/SequreRoute';
 
 const Dashboard = () => {
-    const { admin } = useAuth()
+    const { isAdmin } = useAuth()
     let { path, url } = useRouteMatch();
+        // admin check
+        // const [isAdmin, setIsAdmin] = useState(false);
+        // Admin check and dara loading
+
+        // useEffect(() => {
+        //     fetch(`https://enigmatic-earth-85911.herokuapp.com/users/${user.email}`)
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             console.log(data);
+        //             setIsAdmin(data.admin)
+        //         })
+        // }, [user.email])
+        // console.log(isAdmin);
     return (
         <div>
             <div className="dashboard-container ">
@@ -36,7 +50,7 @@ const Dashboard = () => {
                             </Link>
 
                             {
-                                admin && <div>
+                                isAdmin && <div>
                                     <Link className="linking" to={`${url}/makeadmin`}>
                                         <li className="dashboard-menu mt-5">Make Admin</li>
                                     </Link>
@@ -64,18 +78,18 @@ const Dashboard = () => {
                             <Route exact path={`${path}/review`}>
                                 <Review></Review>
                             </Route>
-                            <Route exact path={`${path}/makeadmin`}>
+                            <SequreRoute exact path={`${path}/makeadmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route exact path={`${path}/addproduct`}>
+                            </SequreRoute>
+                            <SequreRoute exact path={`${path}/addproduct`}>
                                 <AddProduct></AddProduct>
-                            </Route>
-                            <Route exact path={`${path}/manageproducts`}>
+                            </SequreRoute>
+                            <SequreRoute exact path={`${path}/manageproducts`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
-                            <Route exact path={`${path}/manageorders`}>
+                            </SequreRoute>
+                            <SequreRoute exact path={`${path}/manageorders`}>
                                 <ManageAllOrders></ManageAllOrders>
-                            </Route>
+                            </SequreRoute>
 
                         </Switch>
 
