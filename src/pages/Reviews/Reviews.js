@@ -20,7 +20,7 @@ const Reviews = () => {
                 {reviews.map(review => <Col key={review._id} className="px-3">
                     <Card>
                         <Card.Body>
-                            <Card.Title><i class="fas fa-envelope-open text-primary me-2"></i>Email: {review.email}</Card.Title>
+                            <Card.Title><i className="fas fa-envelope-open text-primary me-2"></i>Email: {review.email}</Card.Title>
                             <Card.Text className="text-primary">
                                 <Rating
                                     initialRating={review.rate}

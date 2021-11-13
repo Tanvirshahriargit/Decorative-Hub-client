@@ -12,7 +12,7 @@ const Myorders = () => {
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
-                console.log(data);
+                // console.log(data);
         })
     }, [user?.email])
     
@@ -59,7 +59,7 @@ const Myorders = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="card-body">
-                                        <h5 className="card-title"><i class="fas fa-dice-two text-primary"></i> {order.name}</h5>
+                                        <h5 className="card-title"><i className="fas fa-dice-two text-primary"></i> {order.name}</h5>
                                         <p><i className="fas fa-map-marked-alt text-success me-2"></i>{order.address}</p>
                                         <p> <i className="fas fa-dollar-sign text-primary me-1"></i>{ order.price}</p>
                                         <p className="card-text"><i className="fas fa-mobile me-2"></i>{order.number}</p>

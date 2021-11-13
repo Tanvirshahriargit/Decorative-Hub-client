@@ -28,13 +28,13 @@ const AboutUs = () => {
                     <h2 className="mb-4">Best offer All For All</h2>
                     <Accordion>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header> <i class="fas fa-user-tag text-dark me-2"></i> Special Price</Accordion.Header>
+                            <Accordion.Header> <i className="fas fa-user-tag text-dark me-2"></i> Special Price</Accordion.Header>
                             <Accordion.Body>
                             SPECIAL PRICING can be defined as offering different prices to customers for a particular product according to several criteria, such as quality, quantity, the time frame of purchase and type of customer.on the lockscreen every single time you turn your Kindle on and off or happen to glance at the screen while it's turned off. To me this is simply unacceptable.
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
-                            <Accordion.Header><i class="fas fa-money-check-alt me-2 "></i>Bank Offer</Accordion.Header>
+                            <Accordion.Header><i className="fas fa-money-check-alt me-2 "></i>Bank Offer</Accordion.Header>
                             <Accordion.Body>
                             The discount rate serves as an important indicator of the condition of credit in an economy. Because raising or lowering the discount rate alters the banks' borrowing costs and hence the rates that they charge on loans, adjustment of the discount rate is considered a tool to combat recession or inflation.
                             </Accordion.Body>
@@ -52,7 +52,7 @@ const AboutUs = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="4">
-                            <Accordion.Header><i class="fas fa-shopping-cart me-2"></i>Easy To Placed Order</Accordion.Header>
+                            <Accordion.Header><i className="fas fa-shopping-cart me-2"></i>Easy To Placed Order</Accordion.Header>
                             <Accordion.Body>
                             To place an order, please fill out this order formand send it to Éducaloi at the address indicated on the form. Here is an example of a letter to place an order that the owner of a clothes shop is sending to a manufacturer. When you place an order through the Online Store you will receive an order confirmation number.An order letter, also known as a purchase order or PO, begins the paper trail of a specific purchase. The objective is to provide the vendor with detailed instructions for fulfilling an order. ... The vendor does not need to know why you are placing the order, what it is going to be used for or for whom it is intended.
                             </Accordion.Body>
